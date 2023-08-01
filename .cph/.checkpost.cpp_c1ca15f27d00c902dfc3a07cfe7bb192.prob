@@ -1,0 +1,1 @@
+{"name":"Local: checkpost","url":"d:\\My Backup 1\\Fatbomb\\icpc\\DSA\\DAA\\checkpost.cpp","tests":[{"id":1690319163127,"input":"4 5\n1 2\n2 3\n3 1\n1 4\n3 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\My Backup 1\\Fatbomb\\icpc\\DSA\\DAA\\checkpost.cpp","group":"local","local":true}

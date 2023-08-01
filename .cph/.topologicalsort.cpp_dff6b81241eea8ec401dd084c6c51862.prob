@@ -1,0 +1,1 @@
+{"name":"Local: topologicalsort","url":"d:\\My Backup 1\\Fatbomb\\icpc\\DSA\\DAA\\topologicalsort.cpp","tests":[{"id":1690291948012,"input":"8 9\n1 4\n1 2\n4 2\n4 3\n3 2\n5 2\n3 5\n8 2\n8 6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\My Backup 1\\Fatbomb\\icpc\\DSA\\DAA\\topologicalsort.cpp","group":"local","local":true}

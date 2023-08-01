@@ -14,53 +14,39 @@ typedef long long ll;
 
 ll const N=2e5+7;
 vector<ll> g[N];
-int vis[N];
+bool vis[N];
 ll d[N],h[N];
 stack<int> s;
-bool isloop=false;
-
 void aro_govire_jao(ll v){
 
-    vis[v]=1;
+    vis[v]=true;
 
     for(ll baccha:g[v]){
 
-        if(vis[baccha]==2){
+        if(vis[baccha]){
             continue;
         }
-        else if(vis[baccha]==1){
-            isloop=true;
-            continue;
-        }
-
-
-        
 
         aro_govire_jao(baccha);
 
-
     }
     s.push(v);
-    vis[v]=2;
+
 }
 
 void caes(){
     /*code*/
-    ll n,m;
+    int n,m;
     cin>>n>>m;
-    while(m--){
-        ll u,v;
-        cin>>u>>v;
-        g[u].push_back(v);
+    while(n--){
+        int a,b;
+        cin>>a>>b;
+        g[a].push_back(b);
     }
-    for(int i=n;i>0;i--){
+    for(int i=1;i<=n;i++){
         if(!vis[i]){
             aro_govire_jao(i);
         }
-    }
-    if(isloop){ 
-        cout<<"Sandro fails.\n";
-        return;
     }
     while(!s.empty()){
         cout<<s.top()<<" ";
