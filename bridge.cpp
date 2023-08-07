@@ -20,7 +20,7 @@ vector<ll> g[N];
 bool vis[N];
 ll tim[N], low[N];
 int timer = 1;
-void aro_govire_jao(ll v, int parent, vector<pair<int,int>> &bridge)
+void aro_govire_jao(ll v, int parent, vector<pair<int, int>> &bridge)
 {
     tim[v] = low[v] = timer;
     timer++;
@@ -35,14 +35,16 @@ void aro_govire_jao(ll v, int parent, vector<pair<int,int>> &bridge)
         if (!vis[baccha])
         {
 
-            aro_govire_jao(baccha,v,bridge);
+            aro_govire_jao(baccha, v, bridge);
             low[v] = min(low[v], low[baccha]);
-            if(low[baccha]>=tim[v]){
-                bridge.push_back({v,baccha});
+            if (low[baccha] > tim[v])
+            {
+                bridge.push_back({v, baccha});
             }
         }
-        else{
-            low[v]=min(low[v],tim[baccha]);
+        else
+        {
+            low[v] = min(low[v], tim[baccha]);
         }
     }
 }
@@ -51,7 +53,7 @@ void caes()
 {
     /*code*/
     int n, m;
-    cin >> n, m;
+    cin >> n >> m;
     while (m--)
     {
         ll a, b;
@@ -59,9 +61,10 @@ void caes()
         g[a].push_back(b), g[b].push_back(a);
     }
     vector<pair<int, int>> bridges;
-    aro_govire_jao(0,-1,bridges);
-    for(auto br: bridges){
-        cout<<br.first<<" "<<br.second<<endl;
+    aro_govire_jao(0, -1, bridges);
+    for (auto br : bridges)
+    {
+        cout << br.first << " " << br.second << endl;
     }
 }
 void somadhan()
