@@ -14,7 +14,7 @@ typedef long long ll;
 
 ll const N=2e5+7;
 
-class DS{
+class DSU{
     vector<int> rank,parent,size;
     public:
     DS(int n){
@@ -64,7 +64,7 @@ class DS{
         }
     }
 
-}
+};
 void caes(){
     /*code*/
 }
