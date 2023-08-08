@@ -1,0 +1,1 @@
+{"name":"Local: prim's","url":"d:\\My Backup 1\\Fatbomb\\icpc\\DSA\\DAA\\prim's.cpp","tests":[{"id":1691508875958,"input":"5 6\n0 1 2\n0 2 1\n1 2 1\n2 3 2\n3 4 1\n4 2 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\My Backup 1\\Fatbomb\\icpc\\DSA\\DAA\\prim's.cpp","group":"local","local":true}
