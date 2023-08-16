@@ -72,6 +72,10 @@ void dijkstra(int source,int n)
     }
     printPath(n,par);
     cout<<endl;
+    for(auto d:dist){
+        cout<<d<<" ";
+    }
+    cout<<endl;
 }
 
 void caes()
@@ -85,7 +89,8 @@ void caes()
         g[u].push_back({v, wt});
         g[v].push_back({u,wt});
     }
-    dijkstra(1,n);
+    dijkstra(0,n);
+
 }
 void somadhan()
 {

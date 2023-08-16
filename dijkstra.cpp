@@ -25,7 +25,7 @@ void dijkstra(int source)
     vector<ll> dist(N, INF);
     vector<bool> vis(N, false);
     priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<int, int>>> pq;
-    pq.emplace({0, source});
+    pq.push({0, source});
     while (!pq.empty())
     {
         auto [d, u] = pq.top();
@@ -40,7 +40,7 @@ void dijkstra(int source)
             if (dist[u] + wt < dist[v])
             {
                 dist[v] = dist[v] + wt;
-                pq.emplace({dist[v], v});
+                pq.push({dist[v], v});
             }
         }
     }
