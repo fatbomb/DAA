@@ -14,18 +14,36 @@ typedef long long ll;
 
 ll const N=1e5+7;
 ll const INF=1e9+10;
-vector<vector<int>>dist(N,vector<int>(N,INF));
+
+void printdistance(vector<vector<int>> &dist,int n){
+    for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++){
+                if(i==j){
+                    cout<<"0 ";
+                }
+                else if(dist[i][j]==INF){
+                    cout<<"INF ";
+                }
+                else{
+                    cout<<dist[i][j]<<" ";
+                } 
+
+            }
+            cout<<endl;
+        }
+}
 
 void caes(){
     int n,m;
     cin>>n>>m;
+    vector<vector<int>>dist(n+1,vector<int>(n+1,INF));
     for(int i=0;i<m;i++){
         int u,v,w;
         cin>>u>>v>>w;
         dist[u][v]=w;
     }
     for(int k=1;k<=n;++k){
-        for(int i=1;k<=n;i++){
+        for(int i=1;i<=n;i++){
             for(int j=1;j<=n;j++){
                 if(dist[i][k]!=INF and dist[k][j]!=INF){
                     dist[i][j]=min(dist[i][j],dist[i][k]+dist[k][j]);
@@ -33,6 +51,8 @@ void caes(){
             }
         }
     }
+    printdistance(dist,n);
+    
 }
 void somadhan(){
     ll t=1;
