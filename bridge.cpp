@@ -44,7 +44,7 @@ void aro_govire_jao(ll v, int parent, vector<pair<int, int>> &bridge)
         }
         else
         {
-            low[v] = min(low[v], tim[baccha]);
+            low[v] = min(low[v], low[baccha]);
         }
     }
 }
