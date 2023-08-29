@@ -25,7 +25,7 @@ void printPath(int v, vector<int> &par){
         return;
     }
     if(v==-2){
-        cout<<"-1";
+        //cout<<"-1";
         x=true;
         return;
     }
@@ -61,7 +61,7 @@ void dijkstra(int source,int n)
             ll wt = child.second;
             //cout<<"2\n";
             //cout<<v<<" "<<dist[u]+wt<<"\n";
-            if (dist[u] + wt < dist[v])
+            if (dist[u]!=INF and dist[u] + wt < dist[v])
             {
                 dist[v] = d + wt;
                 pq.push({dist[v], v});
@@ -70,9 +70,13 @@ void dijkstra(int source,int n)
             }
         }
     }
-    printPath(n,par);
-    cout<<endl;
+    //printPath(n,par);
+    //cout<<endl;
     for(auto d:dist){
+        if(d==INF){
+            cout<<"-1 ";
+            continue;
+        }
         cout<<d<<" ";
     }
     cout<<endl;
