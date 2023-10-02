@@ -21,7 +21,7 @@ void caes()
 {
     int n, m;
     cin >> n >> m;
-    vector<int> g(n + 1, vector<int>(n + 1));
+    vector<vector<int>> g(n + 1, vector<int>(n + 1));
     vector<int> deg(n + 1);
     for (auto i = 0; i < m; ++i)
     {
@@ -63,7 +63,8 @@ void caes()
     }
     if (v1 != -1)
     {
-        ++g[v1][v2].++g[v2][v1];
+        ++g[v1][v2];
+        ++g[v2][v1];
     }
     stack<int> st;
     st.push(first);

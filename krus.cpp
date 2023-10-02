@@ -1,4 +1,3 @@
-//Proud to be a Bangali :)
 #include<bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
@@ -13,7 +12,6 @@ typedef long long ll;
 #define arektu_row_na_somoy ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
 ll const N=2e5+7;
-
 class DSU{
     vector<int> rank,parent,size;
     public:
@@ -65,8 +63,48 @@ class DSU{
     }
 
 };
+int SpanningTree(int v, vector<vector<int>> edges){
+    
+    // for(int i=0;i<v;i++){
+    //     for (auto it :g[i]) {
+    //         int adjNode=it.first;
+    //         int wt=it.second;
+    //         int node=i;
+    //         edges.push_back({wt,{node,adjNode}});
+    //     }
+    // }
+    sort(edges.begin(),edges.end());
+    DSU dsu(v);
+    int sum=0;
+    for(auto it :edges){
+        int wt=it[0];
+        int u=it[1];
+        int v=it[2];
+
+        if(dsu.findUPar(u)!=dsu.findUPar(v)){
+            sum+=wt;
+            dsu.UnionBySize(u,v);
+        }
+    }
+    return sum;
+}
+
 void caes(){
-    /*code*/
+    int n, m;
+    cin >> n >> m;
+    // vector<pair<int, int>> g[n + 1];
+    vector<vector<int>> edges;
+    while (m--)
+    {
+        int a, b, c;
+        cin >> a >> b >> c;
+        // g[a].emplace_back(make_pair(b, c));
+        // g[b].emplace_back(make_pair(a, c));
+        edges.push_back({c,a,b});
+        edges.push_back({c,b,a});
+    }
+    int sum = SpanningTree(n, edges);
+    cout << sum << endl;
 }
 void somadhan(){
     ll t=1;
