@@ -1,0 +1,1 @@
+{"name":"Local: rockclimbing","url":"d:\\My Backup 1\\Fatbomb\\icpc\\DSA\\DAA\\rockclimbing.cpp","tests":[{"id":1696370982559,"input":"4 5\n3 2 5 4 8\n5 7 5 6 1\n4 4 6 2 3\n2 8 9 5 8","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\My Backup 1\\Fatbomb\\icpc\\DSA\\DAA\\rockclimbing.cpp","group":"local","local":true}
