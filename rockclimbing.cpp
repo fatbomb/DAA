@@ -44,15 +44,32 @@ void caes()
         }
     }
     int ans=INT_MAX;
+    int k=-1;
     for(int i=1;i<m+1;i++){
-        ans=min(ans,dp[n][i]);
+        if(dp[n][i]<ans){
+            ans=dp[n][i];
+            k=i;
+        }
     }
-    // for(int i=1;i<n+1;i++){
-    //     for(int j=1;j<m+1;j++){
-    //         cout<<dp[i][j]<<" ";
-    //     }
-    //     cout<<endl;
-    // }
+    for(int i=1;i<n+1;i++){
+        for(int j=1;j<m+1;j++){
+            cout<<dp[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    for(int i=n;i>0;i--){
+        cout<<v[i-1][k-1]<<" ";
+        int p=INT_MAX,r=k;
+        for(int j=r-1;j<=r+1;j++){
+            if(p>dp[i-1][j]){
+                k=j;
+                p=dp[i-1][j];
+                //cout<<1<<" ";
+            }
+        }
+        //cout<<endl;
+    }
+    cout<<endl;
     cout<<ans<<endl;
 }
 void somadhan()
