@@ -16,21 +16,35 @@ typedef long long ll;
     cout.tie(NULL);
 
 ll const N = 2e5 + 7;
+int climbup(vector<vector<int>> &dp,int n, int m,vector<vector<int>> &v,int p){
+    if(m==0 or m==p+1){
+        return INT_MAX;
+    }
+    if(n==0){
+        return 0;
+    }
+    if(dp[n][m]!=-1) {
+        return dp[n][m];
+    }
+    int ans=min({climbup(dp,n-1,m-1,v,p),climbup(dp,n-1,m,v,p),climbup(dp,n-1,m+1,v,p)})+v[n-1][m-1];
+    return dp[n][m]=ans;
+}
+
 
 void caes()
 {
     int n, m;
     cin >> n >> m;
-    vector<vector<int>> v(n, vector<int>(m)), dp(n + 1, vector<int>(m + 2));
-    for (int j = 0; j < m + 2; j++)
-    {
-        dp[0][j] = 0;
-    }
-    for (int i = 0; i <= n; i++)
-    {
-        dp[i][0] = INT_MAX;
-        dp[i][m+1] = INT_MAX;
-    }
+    vector<vector<int>> v(n, vector<int>(m)), dp(n + 1, vector<int>(m + 2,-1));
+    // for (int j = 0; j < m + 2; j++)
+    // {
+    //     dp[0][j] = 0;
+    // }
+    // for (int i = 0; i <= n; i++)
+    // {
+    //     dp[i][0] = INT_MAX;
+    //     dp[i][m+1] = INT_MAX;
+    // }
     for (auto &x : v)
     {
         for (auto &y : x)
@@ -38,38 +52,41 @@ void caes()
             cin >> y;
         }
     }
-    for(int i=1;i<n+1;i++){
-        for(int j=1;j<m+1;j++){
-            dp[i][j]=min({dp[i-1][j-1],dp[i-1][j],dp[i-1][j+1]})+v[i-1][j-1];
-        }
-    }
+    // for(int i=1;i<n+1;i++){
+    //     for(int j=1;j<m+1;j++){
+    //         dp[i][j]=min({dp[i-1][j-1],dp[i-1][j],dp[i-1][j+1]})+v[i-1][j-1];
+    //     }
+    // }
     int ans=INT_MAX;
-    int k=-1;
-    for(int i=1;i<m+1;i++){
-        if(dp[n][i]<ans){
-            ans=dp[n][i];
-            k=i;
-        }
+    for(int i=0;i<m;i++){
+        ans=min(ans,climbup(dp,n,i+1,v,m));
     }
-    for(int i=1;i<n+1;i++){
-        for(int j=1;j<m+1;j++){
-            cout<<dp[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-    for(int i=n;i>0;i--){
-        cout<<v[i-1][k-1]<<" ";
-        int p=INT_MAX,r=k;
-        for(int j=r-1;j<=r+1;j++){
-            if(p>dp[i-1][j]){
-                k=j;
-                p=dp[i-1][j];
-                //cout<<1<<" ";
-            }
-        }
-        //cout<<endl;
-    }
-    cout<<endl;
+    // int k=-1;
+    // for(int i=1;i<m+1;i++){
+    //     if(dp[n][i]<ans){
+    //         ans=dp[n][i];
+    //         k=i;
+    //     }
+    // }
+    // for(int i=1;i<n+1;i++){
+    //     for(int j=1;j<m+1;j++){
+    //         cout<<dp[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+    // for(int i=n;i>0;i--){
+    //     cout<<v[i-1][k-1]<<" ";
+    //     int p=INT_MAX,r=k;
+    //     for(int j=r-1;j<=r+1;j++){
+    //         if(p>dp[i-1][j]){
+    //             k=j;
+    //             p=dp[i-1][j];
+    //             //cout<<1<<" ";
+    //         }
+    //     }
+    //     //cout<<endl;
+    // }
+    //cout<<endl;
     cout<<ans<<endl;
 }
 void somadhan()
