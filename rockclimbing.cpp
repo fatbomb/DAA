@@ -13,7 +13,7 @@ typedef long long ll;
 #define arektu_row_na_somoy           \
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);                    \
-    cout.tie(NULL);
+    cout.tie(NULL);   
 
 ll const N = 2e5 + 7;
 int climbup(vector<vector<int>> &dp,int n, int m,vector<vector<int>> &v,int p){
