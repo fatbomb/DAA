@@ -52,9 +52,12 @@ void topologicalSort(int V)
         }
     }
 
-    if (ans.size() != V)
-        cout << "-1"
-             << "\n";
+    if (ans.size() != V){
+        cout << "-1"<< "\n";
+        return;
+            
+    }
+            
 
     for (auto it : ans)
         cout << it << " ";
