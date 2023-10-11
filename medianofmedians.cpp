@@ -39,23 +39,23 @@ int partition(vector<int> &v, int s, int f)
 }
 int medianOfMedians(int k, vector<int> &v, int l, int r)
 {
-    if(k<1 or k>(r-l+1)){
-        //cout<<l<<" "<<r<<endl;
+    if(k<1 or l>r){
+        
         return -1;
     }
     //int p= findMed(v);
     
     int p=partition(v,l,r);
     //cout<<p<<endl;
-    if(k-1==(p-l)){
+    if(k-1==p){
         return v[p];
     }
-    else if(k<(p-l)){
+    else if(k-1<p){
         return medianOfMedians(k,v,l,p-1);
         
     }
     else{
-        return medianOfMedians(k-p+l-1,v,p+1,r);
+        return medianOfMedians(k,v,p+1,r);
     }
 }
 
