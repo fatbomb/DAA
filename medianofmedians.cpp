@@ -28,10 +28,6 @@ int partition(vector<int> &v, int s, int f)
             i++;
             swap(v[i],v[j]);
         }
-        // for(int k=s;k<=f;k++){
-        //     cout<<v[k]<<" ";
-        // }
-        // cout<<endl;
 
     }
     swap(v[i+1],v[f]);
@@ -43,10 +39,8 @@ int medianOfMedians(int k, vector<int> &v, int l, int r)
         
         return -1;
     }
-    //int p= findMed(v);
     
     int p=partition(v,l,r);
-    //cout<<p<<endl;
     if(k-1==p){
         return v[p];
     }
